@@ -32,6 +32,20 @@ public class Candidate {
 		this.prospectusUrl = prospectusUrl;
 		this.vote = vote;
 	}
+	
+	public Candidate(String name, String introduce, String logoUrl, String financing, String member,
+			String mode, String productUrl, String prospectusUrl, Integer vote) {
+		super();
+		this.name = name;
+		this.introduce = introduce;
+		this.logoUrl = logoUrl;
+		this.financing = financing;
+		this.member = member;
+		this.mode = mode;
+		this.productUrl = productUrl;
+		this.prospectusUrl = prospectusUrl;
+		this.vote = vote;
+	}
 
 	/**
 	 * @return the id
