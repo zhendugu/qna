@@ -21,6 +21,10 @@
 		<servlet-name>CandidateShow</servlet-name>
 		<servlet-class>com.shanyuanjie.qna.web.CandidateShow</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>OneShow</servlet-name>
+		<servlet-class>com.shanyuanjie.qna.web.OneShow</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>QuestController</servlet-name>
@@ -37,6 +41,10 @@
 	<servlet-mapping>
 		<servlet-name>CandidateShow</servlet-name>
 		<url-pattern>/CandidateShow</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OneShow</servlet-name>
+		<url-pattern>/OneShow</url-pattern>
 	</servlet-mapping>
 
 <!-- 	<filter>

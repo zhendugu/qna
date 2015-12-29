@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,15 +14,17 @@
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/npm.js" type="text/javascript" charset="utf-8"></script>
 <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	function jumpone(uid){
+		var finalurl = "OneShow?id="+uid;
+		window.location.href=finalurl;
+	}
+</script>
 
 </head>
 
 <body>
-<div>
-<c:forEach items="${list}" var="candidate" varStatus="status">
-${candidate.name }
-</c:forEach>
-</div>
+	<div></div>
 	<div class="container-fluid" id="XS">
 		<div class="row-fluid">
 			<div class="span12">
@@ -36,60 +38,24 @@ ${candidate.name }
 							<th>项目LOGO</th>
 							<th>项目名称</th>
 							<th>简介</th>
+							<th>得票</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td><img
-								src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
-								width="50px" alt='' /></td>
-							<td>慧致天诚</td>
-							<td>俞敏洪老师的公司</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td><img
-								src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
-								width="50px" alt='' /></td>
-							<td>慧致天诚</td>
-							<td>俞敏洪老师的公司</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td><img
-								src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
-								width="50px" alt='' /></td>
-							<td>慧致天诚</td>
-							<td>俞敏洪老师的公司</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td><img
-								src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
-								width="50px" alt='' /></td>
-							<td>慧致天诚</td>
-							<td>俞敏洪老师的公司</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td><img
-								src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
-								width="50px" alt='' /></td>
-							<td>慧致天诚</td>
-							<td>俞敏洪老师的公司</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td><img
-								src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
-								width="50px" alt='' /></td>
-							<td>慧致天诚</td>
-							<td>俞敏洪老师的公司</td>
-						</tr>
+						<c:forEach items="${list}" var="candidate" varStatus="status">
+							<tr onclick="jumpone(${candidate.id });">
+								<td>${status.count }</td>
+								<td><img
+									src="http://img0.imgtn.bdimg.com/it/u=2218069644,1332462894&amp;fm=21&amp;gp=0.jpg"
+									width="50px" alt='' /></td>
+								<td>${candidate.name }</td>
+								<td>${candidate.introduce }</td>
+								<td>${candidate.vote }</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-				<div class="view">
+				<!-- <div class="view">
 					<div class="pagination">
 						<ul contenteditable="true">
 							<li><a href="#">上一页</a></li>
@@ -101,7 +67,7 @@ ${candidate.name }
 							<li><a href="#">下一页</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

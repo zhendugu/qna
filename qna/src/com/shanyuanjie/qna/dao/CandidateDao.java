@@ -30,8 +30,8 @@ public class CandidateDao {
 		ResultSet resultSet = null;
 
 		connection = DBUtil.getConnection();
-
 		pstmt = DBUtil.getPstmt(connection, sql);
+		
 		try {
 			pstmt.setString(1, name);
 
@@ -127,7 +127,7 @@ public class CandidateDao {
 		ResultSet resultSet = null;
 		Candidate candidate = null;
 		
-		String sql = "SELECT * FROM candidate";
+		String sql = "SELECT * FROM candidate ORDER BY vote DESC";
 		
 		connection = DBUtil.getConnection();
 		pstmt=DBUtil.getPstmt(connection, sql);
@@ -208,6 +208,41 @@ public class CandidateDao {
 			DBUtil.closeAll(connection, pstmt, null);
 		}
 		
+	}
+
+	/**
+	 * 按照id查询此公司
+	 * @param parseInt
+	 * @return
+	 */
+	public Candidate showOne(int parseInt) {
+		// TODO Auto-generated method stub
+		
+		Candidate candidate = null;
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		ResultSet resultSet = null;
+		 
+		String sql = "SELECT * FROM candidate WHERE id = ?";
+		
+		connection = DBUtil.getConnection();
+		pstmt=DBUtil.getPstmt(connection, sql);
+		try {
+			pstmt.setInt(1, parseInt);
+			resultSet=pstmt.executeQuery();
+			while (resultSet.next()) {
+				candidate = new Candidate();
+				resultToCandidate(resultSet, candidate);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeAll(connection, pstmt, resultSet);
+		}
+		
+		return candidate;
 	}
 
 }
