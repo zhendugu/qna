@@ -25,6 +25,10 @@
 		<servlet-name>OneShow</servlet-name>
 		<servlet-class>com.shanyuanjie.qna.web.OneShow</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>UserController</servlet-name>
+		<servlet-class>com.shanyuanjie.user.web.UserController</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>QuestController</servlet-name>
@@ -46,13 +50,19 @@
 		<servlet-name>OneShow</servlet-name>
 		<url-pattern>/OneShow</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserController</servlet-name>
+		<url-pattern>/UserController</url-pattern>
+	</servlet-mapping>
+	
 
 <!-- 	<filter>
-		<filter-name>Filtercode</filter-name>
-		<filter-class>com.shanyuanjie.qna.web.Filtercode</filter-class>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 	</filter>
+
 	<filter-mapping>
-		<filter-name>Filtercode</filter-name>
+		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping> -->
 
